@@ -14,6 +14,6 @@ export const site = {
     { group: "Frontend", items: ["TypeScript", "JavaScript", "React", "Next.js", "React Query", "Zustand", "Redux Toolkit", "TailwindCSS", "Storybook"] },
     { group: "Backend", items: ["Node.js", "Express.js", "MongoDB", "Supabase"] },
     { group: "AI", items: ["OpenAI API", "Claude Code"] },
-    { group: "Deploy", items: ["Vercel", "Cloudtype", "AWS S3"] },
+    { group: "Deploy", items: ["Vercel", "Render", "AWS S3"] },
   ],
 };

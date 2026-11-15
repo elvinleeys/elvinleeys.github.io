@@ -51,10 +51,11 @@ export const projects: Project[] = [
       { label: "배포 사이트", href: "https://sorisoop-fe.vercel.app/" },
       { label: "GitHub", href: "https://github.com/elvinleeys/sorisoop_fe" },
       { label: "Storybook", href: "https://68b18c520a82ac63f9524bc5-rueqmotjmh.chromatic.com/?path=/docs/configure-your-project--docs" },
+      { label: "해커톤 소개", href: "https://deepdive.goorm.io/hackathon_project_2" },
     ],
     note: "테스트 계정 test@gmail.com / !1q2w3e4r",
     hero: { image: "/images/soridam-hero.webp", alt: "소리담 서비스 화면", placeholder: "", fit: "object-contain" },
-    background: "해커톤 최우수상 프로젝트를 개인 프로젝트로 전환해 디자인 시스템, Storybook 문서화, 지도 성능까지 다시 설계했습니다.",
+    background: "장소의 '조용함'은 직접 가 봐야만 알 수 있다는 문제를 44명 설문(85%가 소음 불편 경험)으로 확인하고, 실시간 소음 지도·사용자 측정 공유·시간대별 데이터로 풀었습니다. 해커톤 최우수상 프로젝트를 개인 프로젝트로 전환해 지도 성능, 디자인 시스템, Storybook 문서화까지 다시 설계했습니다.",
     overview: {
       kind: "figure",
       image: "/images/soridam-architecture.webp",
@@ -198,12 +199,12 @@ export const projects: Project[] = [
     team: "4인 팀 (페이지별 분담)",
     stack: "React · RTK Query · Styled-components · Express · MongoDB",
     links: [
-      { label: "배포 사이트", href: "https://web-oneul-client-mgurfw3q791cc2d7.sel3.cloudtype.app/logIn" },
+      { label: "배포 사이트", href: "https://project-oneul.vercel.app/" },
       { label: "GitHub", href: "https://github.com/full-stack-team-02/project-oneul" },
     ],
     note: "테스트 계정 test@gmail.com / !1q2w3e4r",
     hero: { image: "/images/oneul-hero.webp", alt: "오늘 서비스 화면", placeholder: "", fit: "object-left-top" },
-    background: "4인이 페이지별로 나눠 프론트엔드와 백엔드를 함께 맡았고, 게시글·댓글·Reaction·검색 기능을 개발했습니다.",
+    background: "바쁜 하루 끝에 마음을 돌아볼 시간이 부족한 사용자를 위해, 질문에 답하며 하루를 기록하고 다른 사용자와 공감·위로를 나누는 서비스입니다. 4인 팀에서 프론트엔드와 백엔드를 함께 맡아 게시글·댓글·Reaction·검색 기능을 개발했습니다.",
     overview: {
       kind: "figure",
       image: "/images/oneul-flow.webp",
@@ -273,7 +274,7 @@ export const projects: Project[] = [
     ],
     note: "서버 비용 문제로 배포를 중단해 시연 영상으로 대체했습니다.",
     hero: { image: "/images/bovo-hero.webp", alt: "Bovo 서비스 화면", placeholder: "", fit: "object-center" },
-    background: "8인 팀에서 프론트엔드 팀장을 맡아 기본 구조·라우팅, 마이페이지, 퀘스트, 실시간 토론방을 개발했습니다.",
+    background: "독서 감상을 남기기 어렵고 흥미를 붙이기 힘든 문제를 기록 템플릿·퀘스트·독서 토론방으로 풀어, 독서 기록 습관을 만들도록 돕는 플랫폼입니다. 8인 팀에서 프론트엔드 팀장을 맡아 기본 구조·라우팅, 마이페이지, 퀘스트, 실시간 토론방을 개발했습니다.",
     overview: {
       kind: "figure",
       image: "/images/bovo-architecture.webp",
