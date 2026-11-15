@@ -156,7 +156,7 @@ export default async function ProjectPage({ params }: Props) {
           <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-6">
             {p.features.map((f) => (
               <div key={f.title} className="flex flex-col gap-3.5">
-                <Shot shot={{ ...f, alt: f.alt ?? `${f.title} 화면` }} className="aspect-[4/3] rounded-2xl text-[14px]" />
+                <Shot shot={{ ...f, alt: f.alt ?? `${f.title} 화면` }} className={`aspect-[4/3] rounded-2xl text-[14px] ${typeof f.image === "string" ? "border border-line" : ""}`} />
                 <p className="m-0 text-[18px] font-bold">{f.title}</p>
                 <p className="m-0 text-[15px] leading-[1.6] text-body">{f.desc}</p>
               </div>

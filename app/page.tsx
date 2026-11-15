@@ -97,7 +97,7 @@ export default function Home() {
         <div className="flex flex-[1_1_360px] flex-col gap-4">
           <p className="eyebrow">ABOUT</p>
           <h2 className="m-0 text-[40px] font-bold tracking-[-0.02em]">이렇게 일해요</h2>
-          <p className="m-0 text-[17px] leading-[1.7] text-body">{site.workStyle}</p>
+          <p className="m-0 text-[17px] leading-[1.7] whitespace-pre-line text-body">{site.workStyle}</p>
         </div>
         <div className="flex flex-[999_1_480px] flex-col border-b border-line">
           {site.skills.map((s) => (

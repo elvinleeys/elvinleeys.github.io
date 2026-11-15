@@ -1,7 +1,11 @@
 // 프로젝트 내용은 전부 여기서 관리한다. 배열 순서 = 번호(01~04) = 이전/다음 순서.
 // image가 없는 곳은 placeholder 문구가 회색 박스로 표시된다. 캡처를 public/images/에 넣고 image에 경로를 적으면 교체된다.
 
-export type Shot = { image?: string; alt?: string; placeholder: string };
+// fit: 칸 비율과 이미지 비율이 다를 때 보여 줄 부분 (기본 "object-top" = 위쪽 기준으로 자름)
+//   "object-contain" 자르지 않고 전체 표시 / "object-left-top" 왼쪽 위 기준 / "object-center" 가운데 기준
+// image를 배열로 쓰면 세로 캡처(모바일 화면) 여러 장을 한 칸에 나란히 표시 (1~2장 권장)
+// stack: 배열 이미지를 위아래로 쌓음 — 가로로 긴 데스크톱 캡처 2장을 한 칸에 넣을 때
+export type Shot = { image?: string | string[]; stack?: boolean; alt?: string; placeholder: string; fit?: "object-contain" | "object-left-top" | "object-center" };
 
 export type Project = {
   slug: string;
@@ -49,7 +53,7 @@ export const projects: Project[] = [
       { label: "Storybook", href: "https://68b18c520a82ac63f9524bc5-rueqmotjmh.chromatic.com/?path=/docs/configure-your-project--docs" },
     ],
     note: "테스트 계정 test@gmail.com / !1q2w3e4r",
-    hero: { placeholder: "[서비스 메인 화면 캡처 / 시연 GIF]" },
+    hero: { image: "/images/soridam-hero.webp", alt: "소리담 서비스 화면", placeholder: "", fit: "object-contain" },
     background: "해커톤 최우수상 프로젝트를 개인 프로젝트로 전환해 디자인 시스템, Storybook 문서화, 지도 성능까지 다시 설계했습니다.",
     overview: {
       kind: "figure",
@@ -58,9 +62,14 @@ export const projects: Project[] = [
       caption: "Next.js(화면·API) ↔ MongoDB · 위치·마이크·지도 API 연동 · GitHub → Vercel 자동 배포",
     },
     features: [
-      { title: "실시간 소음 측정", desc: "마이크 입력을 도넛 차트에 dB·타이머와 함께 표시", placeholder: "[실시간 소음 측정 화면]" },
-      { title: "소음 지도", desc: "장소별 평균 소음을 지도 마커로 확인", placeholder: "[소음 지도 화면]" },
-      { title: "시간대별 통계", desc: "장소 상세에서 시간대별 소음을 막대 차트로 확인", placeholder: "[시간대별 통계 화면]" },
+      {
+        title: "실시간 소음 측정",
+        desc: "마이크 입력을 도넛 차트에 dB·타이머와 함께 표시",
+        image: ["/images/soridam-feature-1-1.webp", "/images/soridam-feature-1-2.webp"],
+        placeholder: "[실시간 소음 측정 화면]",
+      },
+      { title: "소음 지도", desc: "장소별 평균 소음을 지도 마커로 확인", image: ["/images/soridam-feature-2.webp"], placeholder: "[소음 지도 화면]" },
+      { title: "시간대별 통계", desc: "장소 상세에서 시간대별 소음을 막대 차트로 확인", image: ["/images/soridam-feature-3.webp"], placeholder: "[시간대별 통계 화면]" },
     ],
     issues: [
       {
@@ -120,9 +129,27 @@ export const projects: Project[] = [
       caption: "Next.js · TypeScript · Supabase(RLS) · OpenAI · Vercel",
     },
     features: [
-      { title: "스펙 → AI 초안", desc: "스펙 7개 항목이나 화면 이미지로 컴포넌트 구조 초안 생성", placeholder: "[스펙 → AI 초안 화면]" },
-      { title: "미리보기·트리 편집", desc: "배치 미리보기와 트리, 편집 패널로 구조 수정", placeholder: "[미리보기·트리 편집 화면]" },
-      { title: "구조 검사·지시서", desc: "규칙 20개로 오류·경고를 표시하고 작업 지시서 내보내기", placeholder: "[구조 검사·지시서 화면]" },
+      {
+        title: "스펙 → AI 초안",
+        desc: "스펙 7개 항목이나 화면 이미지로 컴포넌트 구조 초안 생성",
+        image: "/images/agentblueprint-feature-1.webp",
+        fit: "object-left-top",
+        placeholder: "[스펙 → AI 초안 화면]",
+      },
+      {
+        title: "미리보기·트리 편집",
+        desc: "배치 미리보기와 트리, 편집 패널로 구조 수정",
+        image: ["/images/agentblueprint-feature-2-1.webp", "/images/agentblueprint-feature-2-2.webp"],
+        stack: true,
+        placeholder: "[미리보기·트리 편집 화면]",
+      },
+      {
+        title: "구조 검사·지시서",
+        desc: "규칙 20개로 오류·경고를 표시하고 작업 지시서 내보내기",
+        image: "/images/agentblueprint-feature-3.webp",
+        fit: "object-left-top",
+        placeholder: "[구조 검사·지시서 화면]",
+      },
     ],
     issues: [
       {
@@ -175,7 +202,7 @@ export const projects: Project[] = [
       { label: "GitHub", href: "https://github.com/full-stack-team-02/project-oneul" },
     ],
     note: "테스트 계정 test@gmail.com / !1q2w3e4r",
-    hero: { placeholder: "[서비스 메인 화면 캡처 / 시연 GIF]" },
+    hero: { image: "/images/oneul-hero.webp", alt: "오늘 서비스 화면", placeholder: "", fit: "object-left-top" },
     background: "4인이 페이지별로 나눠 프론트엔드와 백엔드를 함께 맡았고, 게시글·댓글·Reaction·검색 기능을 개발했습니다.",
     overview: {
       kind: "figure",
@@ -184,9 +211,19 @@ export const projects: Project[] = [
       caption: "게시글 조회(RTK Query 캐시) · 반응(낙관적 업데이트 → PUT /reaction) · 댓글(BottomSheet → Comment API)",
     },
     features: [
-      { title: "다이어리 게시글·댓글", desc: "게시글·댓글 작성·수정·삭제, BottomSheet 댓글", placeholder: "[다이어리 게시글·댓글 화면]" },
-      { title: "Reaction 5종", desc: "반응을 누르면 서버 응답 전에 즉시 반영", placeholder: "[Reaction 5종 화면]" },
-      { title: "검색·베스트 게시글", desc: "키워드 검색과 좋아요 수 기반 베스트 선정", placeholder: "[검색·베스트 게시글 화면]" },
+      {
+        title: "다이어리 게시글·댓글",
+        desc: "게시글·댓글 작성·수정·삭제, BottomSheet 댓글",
+        image: ["/images/oneul-feature-1-1.webp", "/images/oneul-feature-1-2.webp"],
+        placeholder: "[다이어리 게시글·댓글 화면]",
+      },
+      { title: "Reaction 5종", desc: "반응을 누르면 서버 응답 전에 즉시 반영", image: ["/images/oneul-feature-2.webp"], placeholder: "[Reaction 5종 화면]" },
+      {
+        title: "검색·베스트 게시글",
+        desc: "키워드 검색과 좋아요 수 기반 베스트 선정",
+        image: ["/images/oneul-feature-3-1.webp", "/images/oneul-feature-3-2.webp"],
+        placeholder: "[검색·베스트 게시글 화면]",
+      },
     ],
     issues: [
       {
@@ -235,7 +272,7 @@ export const projects: Project[] = [
       { label: "GitHub", href: "https://github.com/elvinleeys/bovo-client" },
     ],
     note: "서버 비용 문제로 배포를 중단해 시연 영상으로 대체했습니다.",
-    hero: { placeholder: "[시연 영상 썸네일]" },
+    hero: { image: "/images/bovo-hero.webp", alt: "Bovo 서비스 화면", placeholder: "", fit: "object-center" },
     background: "8인 팀에서 프론트엔드 팀장을 맡아 기본 구조·라우팅, 마이페이지, 퀘스트, 실시간 토론방을 개발했습니다.",
     overview: {
       kind: "figure",
@@ -244,9 +281,19 @@ export const projects: Project[] = [
       caption: "React(S3) ↔ Spring Boot(EC2) ↔ MySQL · Kakao 로그인·도서 검색 API · GitHub Actions 배포",
     },
     features: [
-      { title: "템플릿 독서 기록", desc: "템플릿에 맞춰 독서 기록 작성", placeholder: "[템플릿 독서 기록 화면]" },
-      { title: "퀘스트·배지", desc: "퀘스트 달성도와 배지 확인", placeholder: "[퀘스트·배지 화면]" },
-      { title: "실시간 독서 토론방", desc: "STOMP 채팅과 독서 기록 공유 모달", placeholder: "[실시간 독서 토론방 화면]" },
+      {
+        title: "템플릿 독서 기록",
+        desc: "템플릿에 맞춰 독서 기록 작성",
+        image: ["/images/bovo-feature-1-1.webp", "/images/bovo-feature-1-2.webp"],
+        placeholder: "[템플릿 독서 기록 화면]",
+      },
+      { title: "퀘스트·배지", desc: "퀘스트 달성도와 배지 확인", image: ["/images/bovo-feature-2.webp"], placeholder: "[퀘스트·배지 화면]" },
+      {
+        title: "실시간 독서 토론방",
+        desc: "STOMP 채팅과 독서 기록 공유 모달",
+        image: ["/images/bovo-feature-3-1.webp", "/images/bovo-feature-3-2.webp"],
+        placeholder: "[실시간 독서 토론방 화면]",
+      },
     ],
     issues: [
       {

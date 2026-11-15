@@ -27,9 +27,11 @@ public/images/               구조도·화면 이미지
 - 폰트: Inter + Noto Sans KR (Google Fonts, `app/layout.tsx`).
 - 터치 영역 최소 44px, 텍스트 대비 4.5:1 이상, 아이콘만 있는 버튼엔 `aria-label`.
 - 글자 크기는 `text-[14px]`처럼 px로 쓴다. `text-sm` 등은 줄 높이까지 바꿔서 원본 디자인과 어긋난다.
+- 이미지 파일명: `<slug>-hero.webp`, `<slug>-feature-<번호>.webp`, 한 칸에 여러 장이면 `<slug>-feature-<번호>-<순서>.webp`. 원본 PNG는 WebP로 변환해 넣는다.
+- 세로 모바일 캡처는 `image: ["..."]`처럼 배열로 넣는다(자르지 않고 나란히 표시, 칸당 1~2장). 가로 데스크톱 캡처 2장은 `stack: true`로 위아래 배치.
+- 한 장을 칸에 꽉 채울 땐 `image: "..."` + 필요하면 `fit`(object-contain / object-left-top / object-center).
 - public 파일(`/images/...`, `/resume.pdf`)을 `<img>`/`<a>`에 쓸 땐 `asset()`으로 감싼다. 페이지 이동은 `next/link`.
 
-## 남은 작업
-- `data/site.ts`의 `[이름]`, `[나를 표현하는 한 문장]`, `[일하는 방식]`, `[이메일 주소]`, GitHub·Blog·이력서 링크(`"#"`) 채우기
-- 회색 박스 → 캡처를 `public/images/`에 넣고 `data/projects.ts`의 해당 `hero`/`features` 항목에 `image: "/images/파일명.webp"` 추가
-- GitHub 저장소 생성 → push → Settings → Pages → Source: "GitHub Actions"
+## 배포
+- 저장소 https://github.com/elvinleeys/elvinleeys.github.io , main push → GitHub Actions → https://elvinleeys.github.io/
+- Bovo 대표 이미지(`bovo-hero.webp`)는 원본이 558px라 흐림 — 큰 캡처가 생기면 교체
